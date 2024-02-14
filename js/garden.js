@@ -30,29 +30,29 @@ Vector.prototype = {
 };
 
 function Petal(a, f, b, e, c, d) {
-	this.stretchA = a;
-	this.stretchB = f;
-	this.startAngle = b;
-	this.angle = e;
-	this.bloom = d;
-	this.growFactor = c;
-	this.r = 1;
-	this.isfinished = false
+    this.stretchA = a * 1; // make petals shorter
+    this.stretchB = f * 1; // make petals wider
+    this.startAngle = b;
+    this.angle = e;
+    this.bloom = d;
+    this.growFactor = c;
+    this.r = 1;
+    this.isfinished = false;
 }
 
 Petal.prototype = {
-	draw: function () {
-		var a = this.bloom.garden.ctx;
-		var e, d, c, b;
-		e = new Vector(0, this.r).rotate(Garden.degrad(this.startAngle));
-		d = e.clone().rotate(Garden.degrad(this.angle));
-		c = e.clone().mult(this.stretchA);
-		b = d.clone().mult(this.stretchB);
-		a.strokeStyle = this.bloom.c;
-		a.beginPath();
-		a.moveTo(e.x, e.y);
-		a.bezierCurveTo(c.x, c.y, b.x, b.y, d.x, d.y);
-		a.stroke()
+    draw: function () {
+        var a = this.bloom.garden.ctx;
+        var e, d, c, b;
+        e = new Vector(0, this.r).rotate(Garden.degrad(this.startAngle));
+        d = e.clone().rotate(Garden.degrad(this.angle));
+        c = e.clone().mult(this.stretchA);
+        b = d.clone().mult(this.stretchB);
+        a.strokeStyle = this.bloom.c;
+        a.beginPath();
+        a.moveTo(e.x, e.y);
+        a.quadraticCurveTo(c.x, c.y, d.x, d.y); 
+        a.stroke()
 	}, render: function () {
 		if (this.r <= this.bloom.r) {
 			this.r += this.growFactor;
@@ -130,8 +130,8 @@ Garden.prototype = {
 };
 Garden.options = {
 	petalCount: {min: 8, max: 15},
-	petalStretch: {min: 0.1, max: 3},
-	growFactor: {min: 0.1, max: 1},
+	petalStretch: {min: 3, max: 3},
+	growFactor: {min: 0.1, max: 0.5},
 	bloomRadius: {min: 8, max: 10},
 	density: 10,
 	growSpeed: 1000 / 60,

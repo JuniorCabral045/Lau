@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <title>Lau Topa</title>
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="icon" href="../Flores/icono.ico" type="image/x-icon">
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+ <style type="text/css">
+  @font-face {
+   font-family: digit;
+   src: url('digital.ttf') format("truetype");
+  }
+ </style>
+ <link href="css/default.css" type="text/css" rel="stylesheet">
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="js/garden.js"></script>
+ <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100%;">
+  <div id="content" class="row">
+   <div id="code" class="col-12">
+    <span class="comments">##</span><br/>
+    <span class="comments"># Soy programador,</span><br/>
+    <span class="comments"># entonces escribí este código para mostrarte los detalles a mi manera.</span><br/>
+    <span class="comments">##</span><br/>
+    i = chico(<span class="string">"Junior"</span>);<br/>
+    u = chica(<span class="string">"Laura"</span>);<br/>
+    <span class="comments"># Jun 18, 2023, Te conocí en un evento solidario. </span><br/>
+    i.meet(u)<br/>
+    <span class="comments"># Jun 24, 2023, Me enamoré de vos.</span><br/>
+    i.falling_inlove(u)<br/>
+    <span class="comments"># Jul 1, 2023, Te convertiste en mi novia.</span><br/>
+    u.accepted(i)<br/>
+    <span class="comments"># Desde entonces, la vida fue algo más hermoso.</span><br/>
+    happy(u, i)<br/>
+    <span class="comments"># Disfrutamos hablando juntos. </span><br/>
+    talk(u, i)<br/>
+    <span class="comments"># Disfrutamos comiendo juntos. </span><br/>
+    dine(u, i)<br/>
+    <span class="comments"># Disfrutamos leyendo juntos. </span><br/>
+    read(u, i)<br/>
+    <span class="comments"># Disfrutamos estando juntos. </span><br/>
+    stay(u, i)<br/>
+    <span class="comments"># A veces hay algunos conflictos entre nosotros. </span><br/>
+    conflict(u, i, sometimes=<span class="keyword">True</span>)<br/>
+    <span class="comments"># Pero estamos cada vez mejor juntos. </span><br/>
+    u.better(i) <br/>
+    i.better(u) <br/>
+    <span class="comments"># Eres el amor más grande de mi vida. </span><br/>
+    while <span class="keyword">True</span>:<br/>
+    <span class="placeholder"></span><span class="keyword">if</span> u.with(i):<br/>
+    <span class="placeholder"></span><span class="placeholder"></span>u = todo<br/>
+    <span class="placeholder"></span><span class="keyword">else</span>:<br/>
+    <span class="placeholder"></span><span class="placeholder"></span>todo = u<br/>
+    <span class="comments"># Espero casarme contigo, seremos la pareja más feliz del mundo. </span><br/>
+    i.marry(u, in_the_future=<span class="keyword">True</span>)<br/>
+    i.live_happily_forever_with(u)<br/>
+    <span class="comments"># Te amo por siempre.</span><br/>
+   </div>
+   <div id="loveHeart" class="col-12">
+    <canvas id="garden"></canvas>
+    <div id="words">
+     <div id="messages">
+      Laura, Me he enamorado de ti por
+      <div id="elapseClock"></div>
+     </div>
+     <div id="loveu">
+      Te amo eternamente, por siempre.<br/>
+      <div class="signature">- Junior Cabral | Repollito</div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+<footer class="mt-auto mb-auto">
+ <div id="copyright">
+  Copyright © 2024 Repollito
+ </div>
+</footer>
+<script type="text/javascript">
+ var offsetX = $("#loveHeart").width() / 2;
+ var offsetY = $("#loveHeart").height() / 2 - 50;
+ var together = new Date();
+
+ together.setFullYear(2023, 5, 26);
+ together.setHours(15);
+ together.setMinutes(0);
+ together.setSeconds(0);
+ together.setMilliseconds(0);
+
+ if (!document.createElement('canvas').getContext) {
+  var msg = document.createElement("div");
+  msg.id = "errorMsg";
+  msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+  document.body.appendChild(msg);
+  $("#code").css("display", "none")
+  $("#copyright").css("position", "absolute");
+  $("#copyright").css("bottom", "10px");
+  document.execCommand("stop");
+ } else {
+  setTimeout(function () {
+   startHeartAnimation();
+  }, 5000);
+
+  timeElapse(together);
+  setInterval(function () {
+   timeElapse(together);
+  }, 500);
+
+  adjustCodePosition();
+  $("#code").typewriter();
+ }
+</script>
+</body>
+</html>
