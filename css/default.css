@@ -3,9 +3,14 @@ body {
     padding: 0;
     background: #fdc9d1;
     font-size: 12px;
-    height: 100vh; /* Asegúrate de que el body tenga una altura definida */
+    width: 100vw; /* 100% del ancho de la ventana de visualización */
+    height: 100vh; /* 100% del alto de la ventana de visualización */
     display: flex; /* Hacer que el body sea un contenedor flexbox */
     flex-direction: column; /* Alinear los elementos hijos en una columna */
+}
+#content {
+    width: 100vw; /* 100% del ancho de la ventana de visualización */
+    height: 100vh; /* 100% de la altura de la ventana de visualización */
 }
 
 #mainDiv {
@@ -36,7 +41,8 @@ body {
     font-family: "sans-serif";
     width: 500px;
     font-size: 24px;
-    color: #666
+    color: #666;
+    top: 27% !important;
 }
 
 #messages {
@@ -115,46 +121,4 @@ body {
 
 #copyright a {
     color: #666
-}
-
-/* Estilos para pantallas de tamaño grande (desktops, laptops) */
-@media (min-width: 992px) {
-    #code {
-        width: 440px;
-        margin-top: 60px;
-        height: 400px;
-    }
-
-    #loveHeart {
-        width: 670px;
-        height: 620px;
-    }
-}
-
-/* Estilos para pantallas de tamaño mediano (tablets) */
-@media (min-width: 768px) and (max-width: 991px) {
-    #code {
-        width: 340px;
-        margin-top: 50px;
-        height: 300px;
-    }
-
-    #loveHeart {
-        width: 570px;
-        height: 520px;
-    }
-}
-
-/* Estilos para pantallas de tamaño pequeño (smartphones) */
-@media (max-width: 767px) {
-    #code {
-        width: 240px;
-        margin-top: 40px;
-        height: 200px;
-    }
-
-    #loveHeart {
-        width: 470px;
-        height: 420px;
-    }
 }
